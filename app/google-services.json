@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "541936847676",
+    "firebase_url": "https://floting-app.firebaseio.com",
+    "project_id": "floting-app",
+    "storage_bucket": "floting-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541936847676:android:cc4ca08f9c0b4d70c4ac39",
+        "android_client_info": {
+          "package_name": "com.example.flotingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541936847676-luar5vrl0vki5ginr1g675gfa0q6o940.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_BniX4MBB_qY9PBsPESIN9gXmhYFENl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541936847676-luar5vrl0vki5ginr1g675gfa0q6o940.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
