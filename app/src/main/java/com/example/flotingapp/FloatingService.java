@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,14 +25,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class FloatingService extends Service {
+public class FloatingService extends Service  {
 
     private WindowManager mWindowManager;
     private View mFloatingView;
 
 
+
+
+
+
     public FloatingService() {
     }
+
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -49,6 +55,8 @@ public class FloatingService extends Service {
         } else {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_PHONE;
         }
+
+
 
 
 
@@ -75,6 +83,7 @@ public class FloatingService extends Service {
         final View expandedView = mFloatingView.findViewById(R.id.expanded_container);
 
 
+
         //Set the close button
         ImageView closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_button);
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +93,9 @@ public class FloatingService extends Service {
                 stopSelf();
             }
         });
+
+
+
 
         //Set the view while floating view is expanded.
 
@@ -152,6 +164,7 @@ public class FloatingService extends Service {
 
     }
 
+
     /**
      * Detect if the floating view is collapsed or expanded.
      *
@@ -163,6 +176,12 @@ public class FloatingService extends Service {
         super.onDestroy();
         if (mFloatingView != null) mWindowManager.removeView(mFloatingView);
     }
+
+
+
+
+
+
 
 
     }

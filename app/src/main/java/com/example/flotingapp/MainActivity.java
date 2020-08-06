@@ -1,5 +1,4 @@
 package com.example.flotingapp;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,10 +7,8 @@ import android.view.View;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.provider.Settings;
-
-import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -20,10 +17,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int SYSTEM_ALERT_WINDOW_PERMISSION = 2084;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
@@ -55,4 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+    ////Firebase///
+
+
 }
