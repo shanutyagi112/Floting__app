@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -29,7 +30,8 @@ public class FloatingService extends Service  {
 
     private WindowManager mWindowManager;
     private View mFloatingView;
-
+    private DatabaseReference mDatabase;
+String text;
 
 
 
@@ -57,6 +59,27 @@ public class FloatingService extends Service  {
         }
 
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        mDatabase.child("data").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                String userID = dataSnapshot.child("text").getValue(String.class);
+
+                Log.e("TAG", "onDataChange: Firebase Text is "+ userID );
+                    text=userID;
+
+                TextView  tv=   mFloatingView.findViewById(R.id.text1);
+                tv.setText(text);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+            }
+        });
 
 
 
@@ -142,9 +165,9 @@ public class FloatingService extends Service  {
                         //So that is click event.
                         if (Xdiff < 10 && Ydiff < 10) {
 
-                                //When user clicks on the image view of the collapsed layout,
-                                //visibility of the collapsed layout will be changed to "View.GONE"
-                                //and expanded view will become visible.
+                            //When user clicks on the image view of the collapsed layout,
+                            //visibility of the collapsed layout will be changed to "View.GONE"
+                            //and expanded view will become visible.
 
                         }
                         return true;
@@ -184,4 +207,4 @@ public class FloatingService extends Service  {
 
 
 
-    }
+}
